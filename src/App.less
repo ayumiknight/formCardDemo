@@ -1,4 +1,30 @@
-.App {
-  text-align: center;
-}
+@Primary: #BB3522;
+@Dark: #999;
+@Light: #666;
 
+.App {
+	min-height: 100vh;
+	width: 100vw;
+	overflow-y: scroll;
+	background: #f8f8f8;
+    .form-wrap {
+        white-space: nowrap;
+		overflow-x: hidden;
+		padding: 200px 100px;
+
+    }
+    .buttons {
+    	text-align: center;
+    	margin-top: 30px;
+    	div {
+    		width: 200px;
+    		padding: 15px 0;
+    		text-align: center;
+    		background: @Primary;
+    		border-radius: 3px;
+    		color: white;
+    		display: inline-block;
+    		margin-right: 20px;
+    	}
+    }
+}

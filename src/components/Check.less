@@ -1,0 +1,33 @@
+@import './common.less';
+
+input[type=checkbox] {
+	margin: 0 5px;
+	content: ' ';
+	border-radius: 3px;
+	border: 2px solid @Light;
+	display: inline-block;
+	line-height: 30px;
+	height: 30px;
+	width: 30px;
+	box-sizing: border-box;
+	position: relative;
+	&:before {
+		content:'';
+		height: 20px;
+		width: 10px;
+		border-right: 2px solid @Primary;
+		border-bottom: 2px solid @Primary;
+		display: block;
+		position: absolute;
+		bottom: 5px;
+		left: 7px;
+		transform: rotate(45deg) scale(0);
+		transition: transform .3s;
+	}	
+	&:checked {
+		border: 2px solid @Primary;
+		&:before {
+			transform: rotate(45deg) scale(1);
+		}
+	}
+}

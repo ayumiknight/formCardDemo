@@ -1,0 +1,86 @@
+@import './common.less';
+
+.form {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    background: white;
+    position: relative;
+    margin-right: 20px;
+    padding: 20px;
+    box-sizing: content-box;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(155, 155, 155, 0.2);
+    margin-bottom: 10px;
+    vertical-align: bottom;
+
+    &.error {
+        box-shadow: 0 5px 10px rgba(187, 53, 34, 0.5);
+    }
+
+    .error {
+        font-weight: bold;
+        color: @Primary;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .delete {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        font-size: 30px;
+    }
+
+    .input-row {
+        margin: 10px 0;
+        position: relative;
+
+        * {
+            line-height: 40px;
+        }
+
+        &:after {
+            border-bottom: 1px solid @Light;
+            transform: scaleY(0.5);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            content: '';
+            width: 100%;
+        }
+
+        label {
+            color: @Light;
+            display: inline-block;
+            width: 70px;
+            text-align: left;
+            vertical-align: bottom;
+
+        }
+
+        .input-component {
+            display: inline-block;
+            width: 200px;
+            white-space: wrap;
+            vertical-align: bottom;
+
+            input {
+                -webkit-appearance: none;   
+                font-size: 20px;
+                line-height: 40px;
+                position: relative;
+                vertical-align: middle;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            input[type=text] {
+                width: 200px;
+                border: none;
+            }
+        }
+    }
+}

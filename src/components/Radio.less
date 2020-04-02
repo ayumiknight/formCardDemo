@@ -1,0 +1,39 @@
+@import './common.less';
+
+input[type=radio] {
+	margin: 0 5px;
+	content: '';
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+	border: 2px solid @Light;
+	line-height: 30px;
+	
+	box-sizing: border-box;
+	display: inline-block;
+	position: relative;
+	&:before {
+		content: "";
+		background: @Primary;
+		width: 14px;
+		height: 14px;
+		position: absolute;
+		border-radius: 14px;
+		left: 6px;
+		bottom: 6px;
+		box-sizing: border-box;
+		transform: scale(0);
+		transition: transform .3s;
+	}
+	&:checked{
+		border: 2px solid @Primary;
+		&:before {
+			transform: scale(1);	
+		}
+	}
+}
+.radio-line {
+	line-height: 40px;
+	vertical-align: middle;
+	display: inline-block;
+}

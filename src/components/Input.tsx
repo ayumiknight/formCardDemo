@@ -13,12 +13,11 @@ export default class Input extends React.Component<InputProps, {}> {
 
 	render() {
 		let {
-			value = "",
-			onChange
+			value = ""
 		} = this.props;
 
 		
-	    return <div className="radio">
+	    return <div className="input-component">
 	        <input 	
 	    		type="text"
 	    		value={value}

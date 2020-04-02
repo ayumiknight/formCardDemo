@@ -1,4 +1,5 @@
 import React from 'react';
+require('./Radio.less');
 
 export interface RadioProps {
 	value?: string | number,
@@ -18,9 +19,9 @@ export default class Radio extends React.Component<RadioProps, {}> {
 			options,
 			name
 		} = this.props;
-	    return <div className="radio">
+	    return <div className="input-component">
 	        {options.map( option => {
-	        	return <span key={option.value}>
+	        	return <span className="radio-line" key={option.value}>
 	        		<input 	
 		        		type="radio"
 		        		value={value}

@@ -2,18 +2,21 @@ import React from 'react';
 import Check from './Check';
 import Input from './Input';
 import Radio from './Radio';
+import './Form.less';
 
 export interface FormData {
 	name?: string ,
 	email?: string,
 	radioTest?: string | number,
-	checkTest?: boolean
+	checkTest?: boolean,
+	errorMessage?: string
 }
 
 export interface FormProps {
 	id: number,
 	formData: FormData,
-	onChange: (formData: FormData) => void
+	onChange: (formData: FormData) => void,
+	onDelete: () => void
 }
 export default class MyForm extends React.Component<FormProps, {}> {
 	onSelfChange(field: string, value: any) {
@@ -25,28 +28,30 @@ export default class MyForm extends React.Component<FormProps, {}> {
 
 	render() {
 		let {
-			id,
 			formData,
-			onChange
+			onDelete
 		} = this.props;
 		let {
 			name,
 			email,
 			radioTest,
-			checkTest
+			checkTest,
+			errorMessage
 		} = formData;
 
 
-	    return <div className="form">
+	    return <div className={`form ${ !!errorMessage ? 'error' : ''}`}>
+
+	    	<div className="delete" onClick={onDelete}><i className="fas fa-chevron-right" />&times;</div>
 	        <div className="input-row">
-	        	<label>name</label>
+	        	<label>Name</label>
 	        	<Input 
 	        		value={name}
 	        		onChange={this.onSelfChange.bind(this, 'name')}
 	        	/>
 	        </div>
 	        <div className="input-row">
-	        	<label>email</label>
+	        	<label>Email</label>
 	        	<Input 
 	        		value={email} 
 	        		onChange={this.onSelfChange.bind(this, 'email')}
@@ -57,10 +62,10 @@ export default class MyForm extends React.Component<FormProps, {}> {
 	        	<Radio
 	        		name="radioTest"
 	        		options={[{
-	        			label: 'pick me otherwise it will fail',
+	        			label: 'correct',
 	        			value: 1
 	        		},{
-	        			label: 'nonce',
+	        			label: 'not corrent',
 	        			value: 2
 	        		}]}
 	        		value={radioTest}
@@ -74,6 +79,7 @@ export default class MyForm extends React.Component<FormProps, {}> {
 	        		onChange={this.onSelfChange.bind(this, 'checkTest')}
 	    		/>
 	        </div>
+	        <div className="error">{errorMessage}</div>
 	    </div>;
 	}
 	

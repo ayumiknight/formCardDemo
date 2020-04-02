@@ -1,4 +1,5 @@
 import React from 'react';
+import './Check.less';
 
 export interface CheckProps {
 	value?: boolean,
@@ -12,11 +13,10 @@ export default class Check extends React.Component<CheckProps, {}> {
 
 	render() {
 		let {
-			value,
-			onChange
+			value
 		} = this.props;
 
-	    return <div className="check">
+	    return <div className="input-component">
 	        <input 
 	        	type="checkbox" 
 	        	checked={!!value} 
